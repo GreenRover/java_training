@@ -14,5 +14,9 @@
         <property name="stockName" type="string">
             <column name="STOCK_NAME" length="20" not-null="true" unique="true" />
         </property>
+        <set name="orders" inverse="true" fetch="join">
+	        <key column="order_id" />
+	        <one-to-many class="ch.mtrail.demo.model.Order" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -1,5 +1,8 @@
 package ch.mtrail.demo.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Model class for Stock
  */
@@ -10,6 +13,7 @@ public class Stock implements java.io.Serializable {
 	private Integer stockId;
 	private String stockCode;
 	private String stockName;
+	private Set<Order> orders = new HashSet<>();
 
 	public Stock() {
 	}
@@ -41,6 +45,14 @@ public class Stock implements java.io.Serializable {
 
 	public void setStockName(String stockName) {
 		this.stockName = stockName;
+	}
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
 	}
 
 }
