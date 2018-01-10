@@ -23,5 +23,10 @@
 
 		<many-to-one name="train" column="trainId"
 			class="ch.mtrail.demo.model.Zugfahrt" not-null="true" />
+			
+		<set name="haltezwecke" inverse="true" lazy="false">
+			<key column="bpId" not-null="true" />
+			<one-to-many class="ch.mtrail.demo.model.ZugfahrtSollpunkteHaltezweck" />
+		</set>
 	</class>
 </hibernate-mapping>

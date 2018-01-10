@@ -1,6 +1,7 @@
 package ch.mtrail.demo.model;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Zugfahrt {
@@ -13,7 +14,7 @@ public class Zugfahrt {
 	private byte isNationalTrain;
 	private byte isPassengerTrain;
 
-	private Set<ZugfahrtSollpunkte> sollPunkte;
+	private Set<ZugfahrtSollpunkte> sollPunkte = new HashSet<>();
 
 	public Integer getTrainId() {
 		return trainId;
@@ -87,4 +88,8 @@ public class Zugfahrt {
 		this.sollPunkte = sollPunkte;
 	}
 
+	@Override
+	public String toString() {
+		return getZugId() + " " + getBetriebsTag();
+	}
 }

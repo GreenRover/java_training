@@ -58,4 +58,9 @@ public class ZugfahrtSollpunkte {
 		this.zeitAb = zeitAb;
 	}
 
+	@Override
+	public String toString() {
+		return getBp() + "\t" + getZeitAn() + " - " + getZeitAb();
+	}
+
 }

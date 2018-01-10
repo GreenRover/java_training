@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="ch.mtrail.demo.model.Zugfahrt" table="zugfahrt">
+	<class name="ch.mtrail.demo.model.Zugfahrt" table="zugfahrt" dynamic-update="true">
 		<id name="trainId" type="java.lang.Integer">
 			<column name="trainId" />
 			<generator class="identity" />
@@ -30,7 +30,7 @@
 			<column name="isPassengerTrain" length="1" not-null="true" />
 		</property>
 
-		<set name="sollPunkte" inverse="true" cascade="all">
+		<set name="sollPunkte" inverse="true" lazy="false">
 			<key column="trainId" not-null="true" />
 			<one-to-many class="ch.mtrail.demo.model.ZugfahrtSollpunkte" />
 		</set>

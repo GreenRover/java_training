@@ -1,15 +1,28 @@
 package ch.mtrail.demo.model;
 
-public class ZugfahrtSollpunkteHaltezweck {
-	private ZugfahrtSollpunkte sollPunkt;
+import java.io.Serializable;
+
+public class ZugfahrtSollpunkteHaltezweck implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4678349120307835463L;
+	
+	
+	private Integer bpId;
 	private Integer halteZweck;
 
-	public ZugfahrtSollpunkte getSollPunkt() {
-		return sollPunkt;
+	public ZugfahrtSollpunkteHaltezweck(Integer bpId, Integer halteZweck) {
+		this.bpId = bpId;
+		this.halteZweck = halteZweck;
 	}
 
-	public void setSollPunkt(ZugfahrtSollpunkte sollPunkt) {
-		this.sollPunkt = sollPunkt;
+	public Integer getBpId() {
+		return bpId;
+	}
+
+	public void setBpId(Integer bpId) {
+		this.bpId = bpId;
 	}
 
 	public Integer getHalteZweck() {
