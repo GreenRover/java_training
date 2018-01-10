@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ch.mtrail.demo.model.ZugfahrtSollpunkte" table="zugfahrtsollpunkte">
+		<id name="bpId" type="java.lang.Integer">
+			<column name="bpId" />
+			<generator class="identity" />
+		</id>
+		<property name="position" type="integer">
+			<column name="position" length="10" not-null="true" />
+		</property>
+		<property name="bp" type="string">
+			<column name="bp" length="100" not-null="true" />
+		</property>
+		<property name="zeitAn" type="time">
+			<column name="zeitAn" not-null="true" />
+		</property>
+		<property name="zeitAb" type="time">
+			<column name="zeitAb" not-null="true" />
+		</property>
+
+		<many-to-one name="train" column="trainId"
+			class="ch.mtrail.demo.model.Zugfahrt" not-null="true" />
+	</class>
+</hibernate-mapping>

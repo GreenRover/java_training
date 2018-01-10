@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="ch.mtrail.demo.model.Zugfahrt" table="zugfahrt">
+		<id name="trainId" type="java.lang.Integer">
+			<column name="trainId" />
+			<generator class="identity" />
+		</id>
+		<property name="evu" type="string">
+			<column name="evu" length="100" not-null="true" />
+		</property>
+		<property name="zugId" type="string">
+			<column name="zugId" length="100" not-null="true" />
+		</property>
+		<property name="betriebsTag" type="date">
+			<column name="betriebsTag" not-null="true" />
+		</property>
+		<property name="versionNumber" type="integer">
+			<column name="versionNumber" length="10" not-null="true" />
+		</property>
+		<property name="isFakZugfahrt" type="byte">
+			<column name="isFakZugfahrt" length="1" not-null="true" />
+		</property>
+		<property name="isNationalTrain" type="byte">
+			<column name="isNationalTrain" length="1" not-null="true" />
+		</property>
+		<property name="isPassengerTrain" type="byte">
+			<column name="isPassengerTrain" length="1" not-null="true" />
+		</property>
+
+		<set name="sollPunkte" inverse="true" cascade="all">
+			<key column="trainId" not-null="true" />
+			<one-to-many class="ch.mtrail.demo.model.ZugfahrtSollpunkte" />
+		</set>
+	</class>
+</hibernate-mapping>
