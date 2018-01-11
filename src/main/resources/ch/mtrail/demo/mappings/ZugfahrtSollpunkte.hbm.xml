@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="ch.mtrail.demo.model" default-cascade="none" default-lazy="true">
-    <class name="ZugfahrtSollpunkte" table="zugfahrtsollpunkte" dynamic-insert="false" dynamic-update="true" mutable="true" polymorphism="implicit" select-before-update="true">
-        <id name="bpId" type="java.lang.Integer">
-            <column name="bpId"/>
-            <generator class="identity"/>
-        </id>
-        <many-to-one class="Zugfahrt" fetch="select" insert="true" name="zugfahrt" not-found="exception" unique="false" update="true">
-            <column name="trainId" not-null="true"/>
-        </many-to-one>
-        <property generated="never" lazy="false" name="position" optimistic-lock="true" type="byte" unique="false">
-            <column name="position" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="bp" optimistic-lock="true" type="string" unique="false">
-            <column length="5" name="bp" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="zeitAn" optimistic-lock="true" type="time" unique="false">
-            <column length="8" name="zeitAn" not-null="true"/>
-        </property>
-        <property generated="never" lazy="false" name="zeitAb" optimistic-lock="true" type="time" unique="false">
-            <column length="8" name="zeitAb" not-null="true"/>
-        </property>
-        <set fetch="subselect" inverse="true" lazy="false" mutable="true" name="haltezwecke" sort="unsorted" table="zugfahrtsollpunktehaltezweck">
-            <key column="bpId" not-null="true"/>
-            <element type="long" column="halteZweck" not-null="true" />
-        </set>
-    </class>
+<hibernate-mapping package="ch.mtrail.demo.model"
+	default-cascade="none" default-lazy="true">
+	<class name="ZugfahrtSollpunkte" table="zugfahrtsollpunkte"
+		dynamic-insert="false" dynamic-update="true" mutable="true"
+		polymorphism="implicit" select-before-update="true">
+		<id name="bpId" type="java.lang.Integer">
+			<column name="bpId" />
+			<generator class="identity" />
+		</id>
+		<many-to-one class="Zugfahrt" fetch="select" insert="true"
+			name="zugfahrt" not-found="exception" unique="false" update="true">
+			<column name="trainId" not-null="true" />
+		</many-to-one>
+		<property generated="never" lazy="false" name="position"
+			optimistic-lock="true" type="byte" unique="false">
+			<column name="position" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="bp"
+			optimistic-lock="true" type="string" unique="false">
+			<column length="5" name="bp" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="zeitAn"
+			optimistic-lock="true" type="time" unique="false">
+			<column length="8" name="zeitAn" not-null="true" />
+		</property>
+		<property generated="never" lazy="false" name="zeitAb"
+			optimistic-lock="true" type="time" unique="false">
+			<column length="8" name="zeitAb" not-null="true" />
+		</property>
+		<set fetch="subselect" inverse="true" lazy="false" mutable="true"
+			name="haltezwecke" sort="unsorted" table="zugfahrtsollpunktehaltezweck">
+			<key column="bpId" not-null="true" />
+			<element type="long" column="halteZweck" not-null="true" />
+		</set>
+	</class>
 </hibernate-mapping>
