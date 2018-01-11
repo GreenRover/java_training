@@ -21,7 +21,7 @@
         <property generated="never" lazy="false" name="zeitAb" optimistic-lock="true" type="time" unique="false">
             <column length="8" name="zeitAb" not-null="true"/>
         </property>
-        <set fetch="select" inverse="true" lazy="true" mutable="true" name="haltezwecke" sort="unsorted" table="zugfahrtsollpunktehaltezweck">
+        <set fetch="subselect" inverse="true" lazy="false" mutable="true" name="haltezwecke" sort="unsorted" table="zugfahrtsollpunktehaltezweck">
             <key column="bpId" not-null="true"/>
             <element type="long" column="halteZweck" not-null="true" />
         </set>
