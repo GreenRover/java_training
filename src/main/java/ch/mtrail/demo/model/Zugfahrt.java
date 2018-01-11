@@ -119,19 +119,19 @@ public class Zugfahrt {
 	public void setIsPassengerTrain(boolean isPassengerTrain) {
 		this.isPassengerTrain = isPassengerTrain;
 	}
-	
+
 	public Set<ZugfahrtSollpunkte> getZugfahrtSollpunkte() {
 		return zugfahrtSollpunkte;
 	}
-	
+
 	public void setZugfahrtSollpunkte(Set<ZugfahrtSollpunkte> zugfahrtSollpunkte) {
 		this.zugfahrtSollpunkte = zugfahrtSollpunkte;
 	}
-	
+
 	public String getZugId() {
 		return getEvu() + "-" + getZugNr() + "-" + getLaufNr();
 	}
-	
+
 	public String toString() {
 		return getZugId() + " " + getBetriebsTag();
 	}
