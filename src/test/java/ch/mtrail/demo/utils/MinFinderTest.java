@@ -1,8 +1,9 @@
 package ch.mtrail.demo.utils;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.sameInstance;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class MinFinderTest {
 
 	@Before
 	public void setup() {
-		minFinder = new MinFinder();
+		minFinder = new MinFinder<Integer>();
 	}
 
 	@Test
@@ -29,7 +30,7 @@ public class MinFinderTest {
 
 		// when
 		try {
-			Integer min = minFinder.min(param);
+			minFinder.min(param);
 			fail();
 		} catch (IllegalArgumentException iae) {
 
@@ -45,7 +46,7 @@ public class MinFinderTest {
 		Collection<Integer> param = null;
 
 		// when
-		Integer min = minFinder.min(param);
+		minFinder.min(param);
 
 		// then
 
@@ -60,7 +61,7 @@ public class MinFinderTest {
 		Integer min = minFinder.min(param);
 
 		// then
-		assertNull(min);
+		assertThat(min, nullValue());
 	}
 
 	@Test
@@ -73,7 +74,7 @@ public class MinFinderTest {
 		Integer min = minFinder.min(param);
 
 		// then
-		assertEquals(value, min);
+		assertThat(min, is(value));
 	}
 
 	@Test
@@ -87,7 +88,7 @@ public class MinFinderTest {
 		Integer min = minFinder.min(param);
 
 		// then
-		assertEquals(value2, min);
+		assertThat(min, is(value2));
 	}
 
 	@Test
@@ -101,22 +102,22 @@ public class MinFinderTest {
 		Integer min = minFinder.min(param);
 
 		// then
-		assertEquals(value1, min);
+		assertThat(min, is(value1));
 	}
 
 	@Test
 	public void min_shouldReturnFirst_whenParamContainsEqualValues() {
 		// given
 		MinFinder<Date> dateMinFinder = new MinFinder<Date>();
-		Date value1 = new Date(234234);
-		Date value2 = new Date(234234);
+		Date value1 = new Date(1999912234);
+		Date value2 = new Date(1999912234);
 		Collection<Date> param = Arrays.asList(value1, value2);
 
 		// when
 		Date min = dateMinFinder.min(param);
 
 		// then
-		assertSame(value1, min);
+		assertThat(min, sameInstance(value1));
 	}
 
 }
