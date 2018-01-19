@@ -1,5 +1,6 @@
 package ch.mtrail.demo.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +20,8 @@ public class Zugfahrt {
 	private boolean isNationalTrain;
 	private boolean isPassengerTrain;
 	private Set<ZugfahrtSollpunkte> zugfahrtSollpunkte = new HashSet<>();
+	
+	private final SimpleDateFormat betriebsTagformat = new SimpleDateFormat("yyyy-MM-dd"); 
 
 	public Zugfahrt() {
 	}
@@ -83,6 +86,10 @@ public class Zugfahrt {
 	public Date getBetriebsTag() {
 		return this.betriebsTag;
 	}
+	
+	public String getBetriebsTagHuman() {
+		return betriebsTagformat.format(betriebsTag);
+	}
 
 	public void setBetriebsTag(Date betriebsTag) {
 		this.betriebsTag = betriebsTag;
@@ -133,6 +140,6 @@ public class Zugfahrt {
 	}
 
 	public String toString() {
-		return getZugId() + " " + getBetriebsTag();
+		return getZugId() + " " + getBetriebsTagHuman();
 	}
 }
