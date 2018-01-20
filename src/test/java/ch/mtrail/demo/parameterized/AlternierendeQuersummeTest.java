@@ -1,10 +1,10 @@
-package ch.mtrail.testing.parameterized;
+package ch.mtrail.demo.parameterized;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AlternierendeQuersumme {
+public class AlternierendeQuersummeTest {
 
 	public int sum(long value) {
 		List<Integer> digits = new ArrayList<>();

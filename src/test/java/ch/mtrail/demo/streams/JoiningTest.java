@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Return people names separated by comma
  */
-public class JoiningSpec {
+public class JoiningTest {
 
     @Test
     public void toStringShouldReturnPeopleNamesSeparatedByComma() {

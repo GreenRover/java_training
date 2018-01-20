@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Get people statistics: average age, count, maximum age, minimum age and sum og all ages.
  */
-public class PeopleStatsSpec {
+public class PeopleStatsTest {
 
     Person sara = new Person("Sara", 4);
     Person viktor = new Person("Viktor", 40);

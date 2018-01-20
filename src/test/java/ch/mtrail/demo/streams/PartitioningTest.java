@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Partition adults and kids
  */
-public class PartitioningSpec {
+public class PartitioningTest {
 
     @Test
     public void partitionAdultsShouldSeparateKidsFromAdults() {

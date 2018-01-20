@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Get oldest person from the collection
  */
-public class OldestPersonSpec {
+public class OldestPersonTest {
 
     @Test
     public void getOldestPersonShouldReturnOldestPerson() {

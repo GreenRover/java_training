@@ -13,7 +13,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Group people by nationality
  */
-public class GroupingSpec {
+public class GroupingTest {
 
     @Test
     public void partitionAdultsShouldSeparateKidsFromAdults() {
