@@ -21,6 +21,12 @@ import ch.mtrail.demo.persistence.HibernateUtil;
 public class App {
 
 	public static void main(final String[] args) {
+		
+		final LogProgressWindow logProgressWindow = new LogProgressWindow();
+		new Thread(() -> {
+			logProgressWindow.open();			
+		}, "GUI").start();
+		
 		System.out.println("Maven + Hibernate + MySQL");
 		final List<Zugfahrt> fahrts = new ArrayList<>();
 		try (final CloseableSession closeableSession = new CloseableSession(
@@ -43,8 +49,8 @@ public class App {
 			fahrts.addAll(query.getResultList());
 
 			fahrts.stream().forEach(z -> {
-				System.out.println("Fahrt: " + z);
-				System.out.println("\t" + String.join(", ", z.getZugfahrtSollpunkte().stream().map(bp -> {
+				logProgressWindow.appendText("Fahrt: " + z);
+				logProgressWindow.appendText("\t" + String.join(", ", z.getZugfahrtSollpunkte().stream().map(bp -> {
 					StringJoiner sj = new StringJoiner("-", " (", ")");
 					sj.setEmptyValue("");
 					bp.getHaltezwecke().stream().forEach(hz -> sj.add(hz.toString()));
