@@ -19,7 +19,7 @@ import ch.mtrail.demo.model.Zugfahrt;
 import ch.mtrail.demo.persistence.CloseableSession;
 import ch.mtrail.demo.persistence.HibernateUtil;
 
-public class FilterDuplicatedTrainsSpec {
+public class FilterDuplicatedTrainsTest {
 	
 	private static List<Zugfahrt> trainsFromDb;
 

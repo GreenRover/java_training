@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Convert elements of a collection to upper case.
  */
-public class ToUpperCaseSpec {
+public class ToUpperCaseTest {
 
     @Test
     public void transformShouldConvertCollectionElementsToUpperCase() {

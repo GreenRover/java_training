@@ -12,7 +12,7 @@ import org.junit.Test;
 /*
 Filter collection so that only elements with less then 4 characters are returned.
  */
-public class FilterCollectionSpec {
+public class FilterCollectionTest {
 
     @Test
     public void transformShouldFilterCollection() {

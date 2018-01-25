@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Sum all elements of a collection
  */
-public class SumSpec {
+public class SumTest {
 
     @Test
     public void transformShouldConvertCollectionElementsToUpperCase() {

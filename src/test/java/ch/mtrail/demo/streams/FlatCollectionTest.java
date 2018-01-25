@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Flatten multidimensional collection
  */
-public class FlatCollectionSpec {
+public class FlatCollectionTest {
 
     @Test
     public void transformShouldFlattenCollection() {

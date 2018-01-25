@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.*;
 /*
 Get names of all kids (under age of 18)
  */
-public class KidsSpec {
+public class KidsTest {
 
     @Test
     public void getKidNameShouldReturnNamesOfAllKidsFromNorway() {
