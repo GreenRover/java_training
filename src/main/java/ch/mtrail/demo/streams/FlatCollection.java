@@ -1,21 +1,17 @@
 package ch.mtrail.demo.streams;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FlatCollection {
 
-    private FlatCollection() {
-    }
+	private FlatCollection() {
+	}
 
-    public static List<String> transform(List<List<String>> collection) {
-        List<String> newCollection = new ArrayList<>();
-        for (List<String> subCollection : collection) {
-            for (String value : subCollection) {
-                newCollection.add(value);
-            }
-        }
-        return newCollection;
-    }
+	public static List<String> transform(List<List<String>> collection) {
+		return collection.stream() //
+				.flatMap(l -> l.stream()) //
+				.collect(Collectors.toList());
+	}
 
 }

@@ -4,14 +4,9 @@ import java.util.List;
 
 public class OldestPerson {
 
-    public static Person getOldestPerson(List<Person> people) {
-        Person oldestPerson = new Person("", 0);
-        for (Person person : people) {
-            if (person.getAge() > oldestPerson.getAge()) {
-                oldestPerson = person;
-            }
-        }
-        return oldestPerson;
-    }
+	public static Person getOldestPerson(List<Person> people) {
+		return people.stream() //
+				.max((p1, p2) -> p1.getAge() - p2.getAge()).get();
+	}
 
 }
