@@ -17,7 +17,7 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_header('Content-type','text/html')
 		self.end_headers()
 		# Send the html message
-		self.wfile.write(runDateUtils())
+		self.wfile.write(self.runDateUtils())
 		return
 		
 	def runDateUtils(self):
